@@ -1,0 +1,29 @@
+language: swift
+osx_image: xcode10
+xcode_sdk: iphonesimulator12.0
+
+branches:
+  only:
+  - master
+  - develop
+  - /^r\/.+$/
+
+jobs:
+  include:    
+    - name: "Test"
+      install:
+        - gem install fastlane --version 2.112.0 --no-ri --no-rdoc --no-document
+        - npm install appium -g
+        - npm install selenium-standalone -g
+        - selenium-standalone install --version 3.14.0 # install Selenium JAR
+        - brew install carthage # to build UI Automation project with Maven
+        - brew install gradle # for boost API, since it's based on Ktor
+      script: fastlane run_test_suite
+    - name: "Build and deploy"
+      install: gem install fastlane --version 2.112.0 --no-ri --no-rdoc --no-document
+      script: fastlane deploy
+
+# NodeJS, JDK, Maven, TestNG seems to be already available on build machines
+#node_js: node
+#jdk: oraclejdk8
+#  - brew install maven

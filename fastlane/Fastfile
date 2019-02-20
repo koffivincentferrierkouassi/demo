@@ -54,7 +54,7 @@ platform :ios do
   end
 
   lane :deploy do
-    run_unit_tests
+    #run_unit_tests
     increment_build_number
     #build_app
     #upload_to_testflight

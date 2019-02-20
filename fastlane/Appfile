@@ -1,0 +1,7 @@
+app_identifier("com.telus.Demo") # The bundle identifier of your app
+apple_id("koffivincentferrier.kouassi@telus.com") # Your Apple email address
+
+#team_id "FMW962A58U"  # TELUS Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
